@@ -1,0 +1,27 @@
+.note-header {
+  padding: 0.6rem;
+  background-color: var(--home-back-color);
+  width: 70%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.header-note-title {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.header-note-icon {
+  background-color: var(--notes-color-1);
+  color: var(--white-color);
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  .note-header {
+    width: 100%;
+  }
+}

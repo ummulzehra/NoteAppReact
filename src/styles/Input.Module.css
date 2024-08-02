@@ -1,0 +1,50 @@
+.input-div {
+  border-bottom-left-radius: 0.5rem;
+  background-color: var(--home-back-color);
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.input-container {
+  background-color: var(--white-color);
+  width: 70%;
+  position: fixed;
+
+  right: 0;
+
+  bottom: 0.1rem;
+}
+.note-input {
+  background-color: var(--white-color);
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.note-input:focus {
+  outline: none;
+}
+.note-input::placeholder {
+  font-size: 1rem;
+  color: #9a9a9a;
+}
+.send-btn {
+  position: relative;
+  right: 3.2rem;
+  top: 2rem;
+  cursor: pointer;
+}
+.send-btn:hover {
+  transform: scale(1.2);
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .input-container {
+    width: 100%;
+    bottom: -1rem;
+  }
+}
