@@ -8,9 +8,7 @@
   background-color: var(--white-color);
   width: 70%;
   position: fixed;
-
-  right: 0;
-
+  right: 25;
   bottom: 0.1rem;
 }
 .note-input {

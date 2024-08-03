@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/CreateNote.Module.css";
 
 const colorOptions = [
@@ -21,6 +21,8 @@ const CreateNote = ({
   const [selectedColor, setSelectedColor] = useState("");
   const [nameError, setNameError] = useState(false);
   const [colorError, setColorError] = useState(false);
+
+  const popupRef = useRef(null);
 
   const handleGroupNameChange = (e) => {
     setGroupName(e.target.value);
@@ -58,49 +60,67 @@ const CreateNote = ({
     setNoteGroups(JSON.parse(localStorage.getItem("noteGroups")));
   };
 
+  const handleClickOutside = (event) => {
+    if (popupRef.current && !popupRef.current.contains(event.target)) {
+      setNoteBtnClick(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const displayContainer = noteBtnClick ? "flex" : "none";
 
   return (
-    <div className="container-body " style={{ display: displayContainer }}>
-      <div className="create-note-container flex ">
-        <p className="create-note-title">Create New Notes group</p>
-        <div className="create-note-input-container flex flex-row justify-start">
-          <label htmlFor="name" className="label">
-            Group Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            className="create-note-input placeholder"
-            placeholder="Enter your group name...."
-            value={groupName}
-            onChange={handleGroupNameChange}
-          />
-        </div>
-        <div className="create-note-input-container flex flex-row justify-start">
-          <label htmlFor="color" className="label">
-            Choose colour
-          </label>
-          <div className="colors flex flex-row">
-            {colorOptions.map(({ color, name }) => (
-              <div
-                key={color}
-                className={`circle color ${
-                  selectedColor === color ? "selected" : ""
-                }`}
-                style={{ backgroundColor: color }}
-                onClick={() => handleColorClick(color)}
-              ></div>
-            ))}
+    <div
+      className="container-body"
+      style={{ display: displayContainer }}
+    >
+      <div className="create-note-popup" ref={popupRef}>
+        <div className="create-note-container flex">
+          <p className="create-note-title">Create New Notes group</p>
+          <div className="create-note-input-container flex flex-row justify-start">
+            <label htmlFor="name" className="label">
+              Group Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              className="create-note-input placeholder"
+              placeholder="Enter your group name...."
+              value={groupName}
+              onChange={handleGroupNameChange}
+            />
           </div>
+          <div className="create-note-input-container flex flex-row justify-start">
+            <label htmlFor="color" className="label">
+              Choose colour
+            </label>
+            <div className="colors flex flex-row">
+              {colorOptions.map(({ color, name }) => (
+                <div
+                  key={color}
+                  className={`circle color ${
+                    selectedColor === color ? "selected" : ""
+                  }`}
+                  style={{ backgroundColor: color }}
+                  onClick={() => handleColorClick(color)}
+                ></div>
+              ))}
+            </div>
+          </div>
+          {nameError && (
+            <p className="show-error">*Please Enter your group name</p>
+          )}
+          {colorError && <p className="show-error">*Please Choose Color</p>}
+          <button className="create-btn" onClick={handleCreateGroup}>
+            Create
+          </button>
         </div>
-        {nameError && (
-          <p className="show-error">*Please Enter your group name</p>
-        )}
-        {colorError && <p className="show-error">*Please Choose Color</p>}
-        <button className="create-btn" onClick={handleCreateGroup}>
-          Create
-        </button>
       </div>
     </div>
   );

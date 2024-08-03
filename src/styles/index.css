@@ -39,6 +39,7 @@
 }
 
 body {
-  background-color: var(--notes-back-color);
+  background-color: #CFE8F6;
   overflow: hidden;
+  /*overflow: scroll;*/
 }

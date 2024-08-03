@@ -17,6 +17,18 @@ const Sidebar = ({
     setSelectedNote(note);
   };
 
+  const getInitials = (name) => {
+    const words = name.split(" ");
+    if (words.length === 1) {
+      // Single word
+      return words[0].charAt(0).toUpperCase();
+    } else if (words.length >= 2) {
+      // Two or more words
+      return `${words[0].charAt(0).toUpperCase()}${words[1].charAt(0).toUpperCase()}`;
+    }
+    return "";
+  };
+
   return (
     <div
       className={`sidebar ${isMobile ? "mob-sidebar" : ""}`}
@@ -28,8 +40,8 @@ const Sidebar = ({
       <div className="sidebar-notes-list flex justify-start">
         {noteGroups &&
           noteGroups.map((note, index) => {
-            const notes = note.name.split(" ");
-            const firstLetters = notes.map((word) => word.charAt(0));
+            const initials = getInitials(note.name);
+
             return (
               <div
                 className={`sidebar-note-element flex flex-row justify-start ${
@@ -42,8 +54,7 @@ const Sidebar = ({
                   className="circle note-list-icon flex"
                   style={{ marginRight: "0.5rem", backgroundColor: note.color }}
                 >
-                  {firstLetters[0]}
-                  {firstLetters[firstLetters.length - 1]}
+                  {initials}
                 </div>
                 <p className="sidebar-note-title">{note.name}</p>
               </div>
@@ -67,7 +78,6 @@ const Sidebar = ({
             fill="white"
           />
         </svg>
-        
       </button>
     </div>
   );

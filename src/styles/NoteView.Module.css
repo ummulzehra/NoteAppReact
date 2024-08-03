@@ -1,47 +1,125 @@
 .note-view-container {
-
   width: 73%;
   margin-left: 24rem;
-  height: 80vh;
-  overflow-y: scroll;
-  max-height: 62%;
+  height: calc(100vh - 150px);
+  /* Adjusted height to leave space for the input */
+  overflow: hidden;
+  /* Hide overflow for the main container */
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 4rem;
+  background-color: #f4f4f4;
   position: relative;
   bottom: 9%;
-  
 }
-.note-view {
+
+.share-group-button,
+.share-note-button,
+.export-group-button {
+  margin: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.share-group-button:hover,
+.share-note-button:hover,
+.export-group-button:hover {
+  background-color: #0056b3;
+}
+
+.search-container {
+  margin: 10px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.notes-list {
+  height: calc(100% - 50px);
+  /* Height minus some space for the input area */
+  overflow-y: auto;
+  padding-right: 1rem;
+  /* Prevent content from being hidden by scrollbar */
+}
+
+.note-box {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   padding: 1rem;
-  width: 90%;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.time-container {
-  text-align: left;
-}
-.time {
-  margin-top: 0.3rem;
-}
-.note {
-  padding: 0.8rem 1rem;
+
+.note-content {
+  font-size: 1rem;
   line-height: 1.5rem;
+  margin-bottom: 0.5rem;
 }
-.example-txt{
+
+.note-footer {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.note-date-time {
+  display: flex;
+  align-items: center;
+  /* Aligns date and time vertically centered */
+}
+
+.note-date-time .bullet {
+  margin: 0 0.5rem;
+  /* Adds spacing around the bullet point */
+  list-style-type: disc;
+  /* Changes the bullet to a disc */
+}
+
+.note-date,
+.note-time {
+  margin: 0;
+}
+
+.example-txt {
   padding-top: 1rem;
   letter-spacing: 0.03em;
+  color: #888;
+  text-align: center;
 }
 
-.note-view-container::-webkit-scrollbar {
+.notes-list::-webkit-scrollbar {
   width: 0.6rem;
-  height: 1rem;
   border-radius: 1rem;
+  background-color: #f5f5f5;
 }
 
-
+.notes-list::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #ccc;
+}
 
 @media screen and (max-width: 768px) {
   .note-view-container {
     width: 100%;
     margin-left: 0;
-    height: 59%;
-    position: relative;
+    height: calc(59vh - 50px);
+    /* Adjusted for mobile */
     bottom: 7%;
+  }
+
+  .notes-list {
+    height: calc(100% - 50px);
+    /* Adjusted for mobile */
   }
 }
