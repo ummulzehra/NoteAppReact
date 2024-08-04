@@ -4,45 +4,75 @@
   margin-bottom: 1rem;
   cursor: pointer;
 }
+
 .input-container {
   background-color: var(--white-color);
   width: 70%;
   position: fixed;
-  right: 25;
+  right: 25px;
+  /* Added unit 'px' */
   bottom: 0.1rem;
+  padding: 1rem;
+  /* Added padding for better spacing */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  /* Added shadow for better visibility */
 }
+
 .note-input {
   background-color: var(--white-color);
   width: 100%;
   padding: 0.5rem;
-  margin: 1rem;
+  margin: 0;
+  /* Removed margin for consistent alignment */
   border-radius: 0.5rem;
-  border: none;
+  border: 1px solid var(--border-color);
+  /* Added border for better visual separation */
   font-size: 1rem;
 }
 
 .note-input:focus {
   outline: none;
+  border-color: lightseagreen;
+  /* Highlight border on focus */
 }
+
 .note-input::placeholder {
   font-size: 1rem;
-  color: #9a9a9a;
+  color: var(--input-color);
 }
+
 .send-btn {
-  position: relative;
-  right: 3.2rem;
-  top: 2rem;
+  position: absolute;
+  /* Changed to absolute positioning */
+  right: 1rem;
+  /* Adjusted for better alignment */
+  bottom: 1rem;
+  /* Adjusted for better alignment */
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  /* Added transition for smoother scaling effect */
 }
+
 .send-btn:hover {
   transform: scale(1.2);
 }
 
-
-
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
   .input-container {
     width: 100%;
-    bottom: -1rem;
+    right: 0;
+    /* Adjusted for mobile alignment */
+    bottom: 0;
+    /* Adjusted for mobile alignment */
+    padding: 0.5rem;
+    /* Reduced padding for mobile */
+  }
+
+  .send-btn {
+    right: 1rem;
+    /* Adjusted for mobile alignment */
+    bottom: 0.5rem;
+    /* Adjusted for mobile alignment */
   }
 }

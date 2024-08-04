@@ -13,6 +13,7 @@
   bottom: 9%;
 }
 
+/* Button Styles */
 .share-group-button,
 .share-note-button,
 .export-group-button {
@@ -23,6 +24,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Smooth transition for hover effect */
 }
 
 .share-group-button:hover,
@@ -31,6 +34,7 @@
   background-color: #0056b3;
 }
 
+/* Search Container Styles */
 .search-container {
   margin: 10px;
 }
@@ -43,6 +47,7 @@
   border-radius: 4px;
 }
 
+/* Notes List Styles */
 .notes-list {
   height: calc(100% - 50px);
   /* Height minus some space for the input area */
@@ -98,6 +103,7 @@
   text-align: center;
 }
 
+/* Custom Scrollbar Styles */
 .notes-list::-webkit-scrollbar {
   width: 0.6rem;
   border-radius: 1rem;
@@ -109,17 +115,20 @@
   background-color: #ccc;
 }
 
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
   .note-view-container {
     width: 100%;
     margin-left: 0;
     height: calc(59vh - 50px);
-    /* Adjusted for mobile */
+    /* Adjusted height for mobile */
     bottom: 7%;
+    padding-top: 3rem;
+    /* Reduced padding for mobile */
   }
 
   .notes-list {
-    height: calc(100% - 50px);
-    /* Adjusted for mobile */
+    height: calc(100% - 60px);
+    /* Adjusted height for mobile */
   }
 }

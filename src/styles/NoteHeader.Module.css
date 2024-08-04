@@ -5,10 +5,15 @@
   position: fixed;
   top: 0;
   right: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Added shadow for better separation */
 }
+
 .header-note-title {
   font-weight: 500;
   font-size: 1.3rem;
+  margin: 0;
+  /* Removed default margin */
 }
 
 .header-note-icon {
@@ -17,11 +22,33 @@
   width: 3rem;
   height: 3rem;
   font-size: 1.2rem;
+  display: flex;
+  /* Center icon */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* Ensure it's a circle */
 }
 
-
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
   .note-header {
     width: 100%;
+    padding: 0.5rem;
+    /* Adjusted padding for mobile */
+  }
+
+  .header-note-title {
+    font-size: 1.1rem;
+    /* Adjusted font size for mobile */
+  }
+
+  .header-note-icon {
+    width: 2.5rem;
+    /* Adjusted size for mobile */
+    height: 2.5rem;
+    /* Adjusted size for mobile */
+    font-size: 1rem;
+    /* Adjusted font size for mobile */
   }
 }

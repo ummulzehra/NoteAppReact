@@ -2,12 +2,17 @@
   width: 70%;
   position: fixed;
   right: 0;
-
+  padding: 1rem;
+  /* Added padding for better spacing */
+  box-sizing: border-box;
+  /* Ensure padding doesn't affect width */
 }
+
 .home-title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 .home-des {
   width: 50%;
   line-height: 1.5rem;
@@ -18,35 +23,43 @@
   bottom: 1rem;
   left: 55%;
 }
-.none{
+
+.none {
   display: flex;
 }
 
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
   .home {
     width: 93%;
-    position: fixed;
     right: auto;
+    padding: 0.5rem;
+    /* Reduced padding for mobile */
   }
-  .home-img{
+
+  .home-img {
     width: 280px !important;
   }
- .home-title {
+
+  .home-title {
     font-size: 1.5rem;
-   
-}
-.home-des {
-  width: 100%;
-  line-height: 1.5rem;
-  text-align: center;
-  font-size: 0.8rem;
-}
-.bottom-txt {
-  position: fixed;
-  bottom: 1rem;
-  left: 28%;
-}
-.none{
-  display: none !important;
-}
+    margin-bottom: 0.8rem;
+    /* Adjusted margin for mobile */
+  }
+
+  .home-des {
+    width: 100%;
+    line-height: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .bottom-txt {
+    left: 20%;
+    /* Adjusted for better placement on mobile */
+  }
+
+  .none {
+    display: none !important;
+  }
 }

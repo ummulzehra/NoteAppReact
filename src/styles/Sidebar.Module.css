@@ -10,20 +10,26 @@
   /* Ensure scrollbar appears when needed */
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+  /* Added shadow for visual separation */
 }
 
 .sidebar-heading {
   width: 100%;
   color: var(--black-color);
   font-size: 1.5rem;
-  padding: 1rem 0 1rem 9rem;
+  padding: 1rem 1rem;
+  /* Adjusted padding */
   position: sticky;
   top: 0;
-  background: white;
+  background-color: var(--white-color);
+  /* Ensures the background color is applied */
+  z-index: 10;
+  /* Ensure it stays above other content */
 }
 
 .sidebar-title {
-  margin: 0.8rem 0 0rem 0rem;
+  margin: 0.8rem 0;
 }
 
 .create-notes {
@@ -34,13 +40,16 @@
   height: 3rem;
   border-radius: 50%;
   border: 1px solid transparent;
-  margin-right: 4rem;
+  margin-right: 1rem;
+  /* Adjusted margin */
   position: sticky;
   bottom: 1rem;
   align-self: flex-end;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Added shadow for better visual appeal */
 }
 
 .create-notes svg {
@@ -48,7 +57,8 @@
 }
 
 .sidebar-notes-list {
-  padding: 1rem 0 20rem 1.5rem;
+  padding: 1rem 1rem 20rem;
+  /* Adjusted padding */
   width: 100%;
   flex: 1;
   overflow-y: auto;
@@ -67,17 +77,18 @@
   width: 3rem;
   height: 3rem;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  /* Ensures the icon is circular */
 }
 
 .note-selected {
   background-color: var(--notes-back-color);
   padding: 0.5rem;
-  border-end-start-radius: 1.5rem;
-  border-start-start-radius: 1.5rem;
-}
-
-.sidebar-note-title {
-  /* Add any styling for sidebar note title here */
+  border-radius: 1.5rem;
+  /* Adjusted to be consistent */
 }
 
 /* Style scrollbar for webkit browsers */
@@ -96,10 +107,13 @@
   /* Set color for scrollbar track */
 }
 
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
   .sidebar {
     width: 100%;
     text-align: center;
+    box-shadow: none;
+    /* Remove shadow for mobile view */
   }
 
   .sidebar-heading {
@@ -107,20 +121,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
   }
 
   .create-notes {
-    width: 90%;
-    position: sticky;
-    bottom: 0;
+    width: 3rem;
+    /* Adjusted size */
+    position: fixed;
+    bottom: 1rem;
     align-self: center;
   }
 
   .note-selected {
-    border-end-start-radius: 0rem;
-    border-start-start-radius: 0rem;
     border-radius: 1rem;
+    /* Adjusted for mobile */
   }
 
   .sidebar-notes-list {

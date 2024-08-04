@@ -1,3 +1,4 @@
+/* Global Resets */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: "Roboto", sans-serif;
 }
 
+/* Root Variables */
 :root {
   --notes-color-1: #b38bfa;
   --notes-color-2: #ff79f2;
@@ -22,24 +24,37 @@
   --send-btn-color: #ababab;
 }
 
+/* Flex Utilities */
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+
 .justify-start {
   justify-content: flex-start !important;
 }
+
 .flex-row {
   flex-direction: row !important;
 }
+
 .circle {
   border-radius: 50%;
 }
 
+/* Body Styles */
 body {
   background-color: #CFE8F6;
-  overflow: hidden;
-  /*overflow: scroll;*/
+  overflow-x: hidden;
+  /* Hide horizontal overflow for better responsiveness */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: auto;
+    /* Allow horizontal scrolling on smaller screens if needed */
+  }
 }
